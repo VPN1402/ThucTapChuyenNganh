@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Trang Chủ</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div layout:fragment="main-content">
+    <!-- Hero Section -->
+
+    <section class="hero">
+        <div class="max-width-container">
+            <div class="hero-content">
+                <h2 class="hero-title">Quản Lý Thư Viện Hiện Đại</h2>
+                <p class="hero-description">Hệ thống quản lý sách toàn diện cho Thư Viện TP.HCM. Tìm kiếm, mượn và quản lý sách dễ dàng hơn bao giờ hết.</p>
+                <div class="hero-buttons">
+                    <a th:href="@{./thuvien}" class="btn btn-white">
+                        Khám Phá Sách
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </a>
+                    <a th:href="@{./dangky}" class="btn btn-secondary">Tạo Tài Khoản</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img th:src="@{/img/banner.jpg}" alt="Thư viện hiện đại" class="hero-img">
+                <div class="hero-card">
+                    <div class="card-item"></div>
+                    <div class="card-item"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="max-width-container">
+            <div class="section-header">
+                <h2 class="section-title">Tính Năng Chính</h2>
+                <p class="section-subtitle">Tất cả những gì bạn cần để quản lý thư viện một cách hiệu quả</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                    </div>
+                    <h3>Quản Lý Sách</h3>
+                    <p>Quản lý toàn bộ sách trong thư viện với giao diện trực quan</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </div>
+                    <h3>Tìm Kiếm Nhanh</h3>
+                    <p>Tìm kiếm sách theo tiêu đề, tác giả hoặc thể loại</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3>Quản Lý Người Dùng</h3>
+                    <p>Theo dõi người mượn sách và thời hạn trả sách dễ dàng</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                            <polyline points="13 2 13 9 20 9"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Hiệu Suất Cao</h3>
+                    <p>Hệ thống nhanh chóng và đáng tin cậy cho thư viện</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="max-width-container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">10K+</div>
+                    <div class="stat-label">Quyển Sách</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5K+</div>
+                    <div class="stat-label">Người Sử Dụng</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">99%</div>
+                    <div class="stat-label">Độ Hài Lòng</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="max-width-container">
+            <div class="section-header">
+                <h2 class="section-title">Nhận Xét Từ Cộng Đồng</h2>
+                <p class="section-subtitle">Xem những gì người dùng nói về BookLib</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"BookLib đã giúp tôi quản lý thư viện hiệu quả hơn rất nhiều!"</p>
+                    <div class="testimonial-author">
+                        <p class="author-name">Nguyễn Văn A</p>
+                        <p class="author-role">Thủ Thư</p>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Giao diện rất thân thiện và dễ sử dụng cho cả nhân viên lẫn độc giả."</p>
+                    <div class="testimonial-author">
+                        <p class="author-name">Trần Thị B</p>
+                        <p class="author-role">Quản Lý Thư Viện</p>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★</div>
+                    <p class="testimonial-text">"Dễ dàng tìm thấy sách yêu thích và theo dõi thời hạn mượn!"</p>
+                    <div class="testimonial-author">
+                        <p class="author-name">Lê Minh C</p>
+                        <p class="author-role">Độc Giả</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="max-width-container">
+            <h2 class="cta-title">Sẵn Sàng Bắt Đầu?</h2>
+            <p class="cta-subtitle">Tham gia cộng đồng BookLib ngay hôm nay và khám phá hàng nghìn quyển sách tuyệt vời.</p>
+            <div class="cta-buttons">
+                <a th:href="@{./dangky}" class="btn btn-white">Đăng Ký Miễn Phí</a>
+                <a th:href="@{./thuvien}" class="btn btn-outline-white">Khám Phá Sách</a>
+            </div>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>

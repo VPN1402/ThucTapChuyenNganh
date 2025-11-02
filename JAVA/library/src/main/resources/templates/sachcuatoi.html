@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Sách Của Tôi</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div layout:fragment="main-content">
+    <!-- Hero Section -->
+    <section class="library-hero">
+        <div class="max-width-container">
+            <h1 class="hero-title">Sách Của Tôi</h1>
+            <p class="hero-subtitle">Quản lý các sách bạn đang mượn và lịch sử trả sách</p>
+        </div>
+    </section>
+
+    <!-- My Books Content -->
+    <section class="mybooks-content">
+        <div class="max-width-container">
+            <!-- Tabs -->
+            <div class="book-tabs">
+                <button class="tab-btn active" data-tab="borrowed">Sách Đang Mượn <span class="tab-count">(3)</span></button>
+                <button class="tab-btn" data-tab="returned">Sách Đã Trả <span class="tab-count">(2)</span></button>
+            </div>
+
+            <!-- Borrowed Books Tab -->
+            <div class="tab-content active" id="borrowedTab">
+                <div class="books-list" id="borrowedList">
+                    <!-- Books will be inserted here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Returned Books Tab -->
+            <div class="tab-content" id="returnedTab">
+                <div class="books-list" id="returnedList">
+                    <!-- Books will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script th:src="@{/js/mybooks.js}"></script>
+</body>
+</html>
