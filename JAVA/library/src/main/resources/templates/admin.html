@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout}"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css(admin)/styles.css}">
+</head>
+<body>
+<div layout:fragment="content">
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">Bảng điều khiển</h1>
+            <p class="page-subtitle">Chào mừng trở lại. Đây là tổng quan quản lý thư viện của bạn.</p>
+        </div>
+
+        <!-- STAT CARDS -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-card-content">
+                    <div class="stat-card-label">Tổng số sách</div>
+                    <div class="stat-card-value">1247</div>
+                </div>
+                <div class="stat-card-icon" style="background-color: rgba(59, 130, 246, 0.2); color: #3b82f6;">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M4 19.5h16A2.5 2.5 0 0021.5 17V7a2.5 2.5 0 00-2.5-2.5H4A2.5 2.5 0 001.5 7v10a2.5 2.5 0 002.5 2.5z"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="stat-card" style="border-left-color: #10b981;">
+                <div class="stat-card-content">
+                    <div class="stat-card-label">Tác giả</div>
+                    <div class="stat-card-value">342</div>
+                </div>
+                <div class="stat-card-icon" style="background-color: rgba(16, 185, 129, 0.2); color: #10b981;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="stat-card" style="border-left-color: #f59e0b;">
+                <div class="stat-card-content">
+                    <div class="stat-card-label">Sách đã mượn</div>
+                    <div class="stat-card-value">289</div>
+                </div>
+                <div class="stat-card-icon" style="background-color: rgba(245, 158, 11, 0.2); color: #f59e0b;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 17"></polyline>
+                        <polyline points="17 6 23 6 23 12"></polyline>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="stat-card" style="border-left-color: #8b5cf6;">
+                <div class="stat-card-content">
+                    <div class="stat-card-label">Sách có sẵn</div>
+                    <div class="stat-card-value">958</div>
+                </div>
+                <div class="stat-card-icon" style="background-color: rgba(139, 92, 246, 0.2); color: #8b5cf6;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <polyline points="19 12 12 19 5 12"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARDS SECTION -->
+        <div class="cards-grid">
+            <!-- Recent Books -->
+            <div class="card">
+                <h3 class="card-title">Sách được thêm gần đây</h3>
+                <div class="card-item">
+                    <div class="card-item-content">
+                        <div class="card-item-title">The Great Gatsby</div>
+                        <div class="card-item-subtitle">F. Scott Fitzgerald</div>
+                    </div>
+                    <div class="card-item-meta">2 ngày trước</div>
+                </div>
+                <div class="card-item">
+                    <div class="card-item-content">
+                        <div class="card-item-title">To Kill a Mockingbird</div>
+                        <div class="card-item-subtitle">Harper Lee</div>
+                    </div>
+                    <div class="card-item-meta">5 ngày trước</div>
+                </div>
+                <div class="card-item">
+                    <div class="card-item-content">
+                        <div class="card-item-title">1984</div>
+                        <div class="card-item-subtitle">George Orwell</div>
+                    </div>
+                    <div class="card-item-meta">1 tuần trước</div>
+                </div>
+            </div>
+
+            <!-- Top Authors -->
+            <div class="card">
+                <h3 class="card-title">Tác giả hàng đầu</h3>
+                <div class="card-item">
+                    <div class="card-item-avatar">J</div>
+                    <div class="card-item-content">
+                        <div class="card-item-title">Jane Austen</div>
+                        <div class="card-item-subtitle">12 sách</div>
+                    </div>
+                    <div class="card-item-meta" style="font-size: 18px; font-weight: 700; color: white;">12</div>
+                </div>
+                <div class="card-item">
+                    <div class="card-item-avatar">C</div>
+                    <div class="card-item-content">
+                        <div class="card-item-title">Charles Dickens</div>
+                        <div class="card-item-subtitle">10 sách</div>
+                    </div>
+                    <div class="card-item-meta" style="font-size: 18px; font-weight: 700; color: white;">10</div>
+                </div>
+                <div class="card-item">
+                    <div class="card-item-avatar">M</div>
+                    <div class="card-item-content">
+                        <div class="card-item-title">Mark Twain</div>
+                        <div class="card-item-subtitle">8 sách</div>
+                    </div>
+                    <div class="card-item-meta" style="font-size: 18px; font-weight: 700; color: white;">8</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity Section -->
+        <div class="card">
+            <h3 class="card-title">Hoạt động gần đây</h3>
+            <div class="card-item">
+                <div style="width: 6px; height: 6px; background-color: #3b82f6; border-radius: 50%; margin-right: 12px; flex-shrink: 0; margin-top: 6px;"></div>
+                <div class="card-item-content">
+                    <div class="card-item-title">Sách được mượn</div>
+                    <div class="card-item-subtitle">Nguyễn Văn A</div>
+                </div>
+                <div class="card-item-meta">1 giờ trước</div>
+            </div>
+            <div class="card-item">
+                <div style="width: 6px; height: 6px; background-color: #3b82f6; border-radius: 50%; margin-right: 12px; flex-shrink: 0; margin-top: 6px;"></div>
+                <div class="card-item-content">
+                    <div class="card-item-title">Sách được trả</div>
+                    <div class="card-item-subtitle">Trần Thị B</div>
+                </div>
+                <div class="card-item-meta">3 giờ trước</div>
+            </div>
+            <div class="card-item">
+                <div style="width: 6px; height: 6px; background-color: #3b82f6; border-radius: 50%; margin-right: 12px; flex-shrink: 0; margin-top: 6px;"></div>
+                <div class="card-item-content">
+                    <div class="card-item-title">Sách được thêm</div>
+                    <div class="card-item-subtitle">Admin</div>
+                </div>
+                <div class="card-item-meta">5 giờ trước</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let sidebarOpen = true;
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const container = document.querySelector('.container');
+            sidebarOpen = !sidebarOpen;
+            if (sidebarOpen) {
+                sidebar.classList.remove('hidden');
+                container.classList.remove('full-width');
+            } else {
+                sidebar.classList.add('hidden');
+                container.classList.add('full-width');
+            }
+        }
+    </script>
+</div>
+</body>
+</html>

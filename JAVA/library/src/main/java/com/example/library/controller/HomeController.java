@@ -11,18 +11,23 @@ public class HomeController {
     }
     @GetMapping("/thuvien")
     public String thuvien() {
-        return "thuvien";
+        return "home/thuvien";
     }
     @GetMapping("/sachcuatoi")
     public String sachcuatoi() {
-        return "sachcuatoi";
+        return "home/sachcuatoi";
     }
     @GetMapping("/dangnhap")
     public String dangnhap() {
-        return "dangnhap";
+        return "home/dangnhap";
     }
     @GetMapping("/dangky")
     public String dangky() {
-        return "dangky";
+        return "home/dangky";
+    }
+    @GetMapping("/admin")
+
+    public String admin() {
+        return "admin";
     }
 }
