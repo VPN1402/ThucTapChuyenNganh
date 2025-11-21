@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="vi"
       xmlns:th="http://www.thymeleaf.org"
@@ -10,7 +9,6 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-<!-- Header -->
 <header class="header sticky">
     <nav class="navbar max-width-container">
         <div class="navbar-brand">
@@ -28,18 +26,29 @@
             </a>
         </div>
 
-        <button class="mobile-menu-btn" id="mobileMenuBtn">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-        </button>
-
         <div class="nav-links desktop-only" id="navLinks">
             <a th:href="@{index}" class="nav-link active">Trang Chủ</a>
             <a th:href="@{thuvien}" class="nav-link">Thư Viện</a>
             <a th:href="@{sachcuatoi}" class="nav-link">Sách Của Tôi</a>
+            <a th:href="@{lienhe}" class="nav-link">Liên Hệ</a>
+            <a th:href="@{taikhoan}" class="nav-link">Tài Khoản</a>
+        </div>
+
+        <div class="nav-utility">
+            <button class="icon-btn desktop-only" aria-label="Tìm kiếm sách">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
         </div>
 
         <div class="auth-buttons desktop-only">
@@ -52,6 +61,8 @@
         <a th:href="@{..}" class="mobile-nav-link active">Trang Chủ</a>
         <a th:href="@{./thuvien}" class="mobile-nav-link">Thư Viện</a>
         <a th:href="@{./sachcuatoi}" class="mobile-nav-link">Sách Của Tôi</a>
+        <a th:href="@{./lienhe}" class="mobile-nav-link">Liên Hệ</a>
+        <a th:href="@{./taikhoan}" class="mobile-nav-link">Tài Khoản</a>
         <div class="mobile-auth-buttons">
             <a th:href="@{./dangnhap}" class="btn btn-outline full-width">Đăng Nhập</a>
             <a th:href="@{./dangky}" class="btn btn-primary full-width">Đăng Ký</a>
@@ -62,7 +73,6 @@
 
 <div layout:fragment="main-content"></div>
 
-<!-- Footer -->
 <footer class="footer">
     <div class="max-width-container">
         <div class="footer-content">
@@ -85,15 +95,14 @@
                     <li><a th:href="@{index}">Trang Chủ</a></li>
                     <li><a th:href="@{thuvien}">Thư Viện</a></li>
                     <li><a th:href="@{sachcuatoi}">Sách Của Tôi</a></li>
+
                 </ul>
             </div>
 
             <div class="footer-section">
                 <h4>Hỗ Trợ</h4>
                 <ul>
-                    <li><a href="#">Liên Hệ</a></li>
-                    <li><a href="#">Hỏi Đáp</a></li>
-                    <li><a href="#">Điều Khoản Sử Dụng</a></li>
+                    <li><a th:href="@{./lienhe}">Liên Hệ</a></li>
                 </ul>
             </div>
 
@@ -105,13 +114,13 @@
                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                             <circle cx="12" cy="10" r="3"></circle>
                         </svg>
-                        Thành phố Hồ Chí Minh, Việt Nam
+                        Số 180 Cao Lỗ, Phường 4, Quận 8, TP. Hồ Chí Minh
                     </li>
                     <li>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                         </svg>
-                        +84 (0) 123 456 789
+                        +84 (0) 866 811 434
                     </li>
                     <li>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

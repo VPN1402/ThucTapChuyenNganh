@@ -17,4 +17,6 @@ public class AdminController {
     public String productsList(){
         return "admin/products/products-list";
     }
+
+
 }

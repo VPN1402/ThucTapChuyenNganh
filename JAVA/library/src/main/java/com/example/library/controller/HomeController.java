@@ -25,9 +25,18 @@ public class HomeController {
     public String dangky() {
         return "home/dangky";
     }
+    @GetMapping("/lienhe")
+    public String lienhe() {
+        return "home/lienhe";
+    }
+    @GetMapping("/taikhoan")
+    public String taikhoan() {
+        return "home/taikhoan";
+    }
     @GetMapping("/admin")
 
     public String admin() {
         return "admin";
     }
+
 }
