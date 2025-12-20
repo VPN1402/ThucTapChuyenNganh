@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{home/layout}">
+<head>
+    <title>Chi Tiết Sách</title>
+    <style>
+        .detail-wrapper { padding: 50px 0; display: flex; gap: 40px; }
+        .img-side { flex: 1; }
+        .info-side { flex: 1.5; }
+        .price-tag { font-size: 2rem; color: #d9534f; font-weight: bold; margin: 20px 0; }
+        .content-box { background: #f8f9fa; padding: 20px; border-radius: 8px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+<div layout:fragment="main-content">
+    <div class="max-width-container detail-wrapper">
+        <div class="img-side text-center">
+            <img th:src="${p.image}" class="img-fluid rounded shadow" style="max-height: 500px;">
+        </div>
+        <div class="info-side">
+            <nav aria-label="breadcrumb"><ol class="breadcrumb">
+                <li class="breadcrumb-item"><a th:href="@{/shop/theloai}">Thể loại</a></li>
+                <li class="breadcrumb-item active" th:text="${p.category.name}"></li>
+            </ol></nav>
+
+            <h1 th:text="${p.title}" class="display-5 fw-bold"></h1>
+            <div class="price-tag" th:text="${#numbers.formatDecimal(p.price, 0, 'POINT', 0, 'COMMA')} + ' đ'"></div>
+
+            <h5>Mô tả ngắn:</h5>
+            <p th:text="${p.description}" class="text-muted"></p>
+
+
+
+            <button class="btn btn-primary btn-lg mt-4 w-100">XÁC NHẬN MƯỢN SÁCH</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

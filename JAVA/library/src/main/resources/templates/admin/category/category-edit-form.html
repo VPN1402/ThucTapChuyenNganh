@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{/admin/layout}"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Chỉnh sửa Thể loại</title>
+</head>
+<body>
+<div layout:fragment="content">
+
+    <div class="container my-5">
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+
+                <div class="card shadow-lg border-0">
+                    <div class="card-header bg-warning text-white text-center py-3">
+                        <h4 class="mb-0">Chỉnh Sửa Thể Loại</h4>
+                    </div>
+                    <div class="card-body p-4">
+
+                        <form th:action="@{/admin/category/save}" method="post" th:object="${category}">
+
+                            <input type="hidden" th:field="*{id}">
+
+                            <div class="mb-3">
+                                <label for="name" class="form-label fw-bold">Tên Thể loại</label>
+                                <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="Nhập tên thể loại..." required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="image_field" class="form-label fw-bold">URL Hình ảnh</label>
+                                <input type="text" class="form-control" id="image_field" th:field="*{image}" placeholder="https://example.com/image.jpg" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Trạng thái</label>
+                                <div class="p-2 border rounded">
+                                    <div class="form-check form-check-inline me-4">
+                                        <input class="form-check-input" type="radio" id="statusActive" th:field="*{status}" th:value="1">
+                                        <label class="form-check-label text-success" for="statusActive">
+                                            <i class="bi bi-check-circle-fill"></i> 1 (Kích hoạt)
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" id="statusInactive" th:field="*{status}" th:value="0">
+                                        <label class="form-check-label text-danger" for="statusInactive">
+                                            <i class="bi bi-x-octagon-fill"></i> 0 (Khóa)
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-grid mt-4">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="bi bi-pencil-square"></i> Cập Nhật
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

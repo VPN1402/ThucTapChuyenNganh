@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{home/layout}">
+<head>
+    <title>Khám Phá Thể Loại - BookLib</title>
+    <style>
+        .category-container { padding: 40px 0; }
+        .section-header { text-align: center; margin-bottom: 40px; }
+        .section-header h2 { font-size: 2rem; color: #2d3436; font-weight: 800; }
+
+        /* Grid hiển thị 4-5 ô trên một hàng */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        /* Card thiết kế nhỏ gọn */
+        .cat-card {
+            background: white; border-radius: 12px; overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: 0.3s;
+            border: 1px solid #f0f0f0; text-decoration: none !important;
+            display: block;
+        }
+        .cat-card:hover { transform: translateY(-5px); border-color: #007bff; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+
+        /* KHÔNG GIAN ẢNH THU NHỎ */
+        .cat-img-wrapper { width: 100%; height: 150px; overflow: hidden; background: #f8f9fa; }
+        .cat-img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .cat-card:hover .cat-img { transform: scale(1.08); }
+
+        .cat-info { padding: 15px; text-align: center; }
+        .cat-name {
+            font-size: 1.05rem; color: #333; font-weight: 700;
+            margin-bottom: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+
+        .btn-view {
+            background: #f1f2f6; color: #555; border-radius: 20px;
+            padding: 5px 15px; font-size: 0.8rem; font-weight: 600;
+            display: inline-block; transition: 0.3s;
+        }
+        .cat-card:hover .btn-view { background: #007bff; color: white; }
+    </style>
+</head>
+<body>
+
+<div layout:fragment="main-content">
+    <div class="max-width-container category-container">
+
+        <div class="section-header">
+            <h2>DANH MỤC THỂ LOẠI</h2>
+            <p class="text-muted">Chọn một chủ đề để tìm kiếm những cuốn sách hay nhất</p>
+        </div>
+
+        <div class="category-grid">
+            <a th:each="cat : ${categories}" th:href="@{/shop/category/{id}(id=${cat.id})}" class="cat-card">
+                <div class="cat-img-wrapper">
+                    <img th:src="${cat.image != null ? cat.image : 'https://via.placeholder.com/300x200?text=Category'}"
+                         class="cat-img" alt="Thể loại">
+                </div>
+
+                <div class="cat-info">
+                    <h3 class="cat-name" th:text="${cat.name}">Tên Thể Loại</h3>
+                    <span class="btn-view">Khám phá sách</span>
+                </div>
+            </a>
+        </div>
+
+        <div th:if="${#lists.isEmpty(categories)}" class="text-center py-5">
+            <p class="text-muted">Dữ liệu thể loại đang được cập nhật...</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

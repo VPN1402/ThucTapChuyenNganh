@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi"
       xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
@@ -12,7 +13,7 @@
 <header class="header sticky">
     <nav class="navbar max-width-container">
         <div class="navbar-brand">
-            <a th:href="@{index}" class="brand-logo">
+            <a th:href="@{/index}" class="brand-logo">
                 <div class="brand-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
@@ -27,20 +28,20 @@
         </div>
 
         <div class="nav-links desktop-only" id="navLinks">
-            <a th:href="@{index}" class="nav-link active">Trang Chủ</a>
-            <a th:href="@{thuvien}" class="nav-link">Thư Viện</a>
-            <a th:href="@{sachcuatoi}" class="nav-link">Sách Của Tôi</a>
-            <a th:href="@{lienhe}" class="nav-link">Liên Hệ</a>
-            <a th:href="@{taikhoan}" class="nav-link">Tài Khoản</a>
+            <a th:href="@{/}" class="nav-link">Trang Chủ</a>
+            <a th:href="@{/shop}" class="nav-link">Thư Viện</a>
+            <a th:href="@{/shop/theloai}" class="nav-link">Thể Loại</a>
+
+
         </div>
 
         <div class="nav-utility">
-            <button class="icon-btn desktop-only" aria-label="Tìm kiếm sách">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-            </button>
+<!--            <button class="icon-btn desktop-only" aria-label="Tìm kiếm sách">-->
+<!--                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">-->
+<!--                    <circle cx="11" cy="11" r="8"></circle>-->
+<!--                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>-->
+<!--                </svg>-->
+<!--            </button>-->
 
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -52,20 +53,54 @@
         </div>
 
         <div class="auth-buttons desktop-only">
-            <a th:href="@{dangnhap}" class="btn btn-outline">Đăng Nhập</a>
-            <a th:href="@{dangky}" class="btn btn-primary">Đăng Ký</a>
+            <li sec:authorize="isAnonymous()">
+                <a th:href="@{/login}" class="btn btn-primary">Đăng nhập</a>
+            </li>
+
+            <li sec:authorize="isAuthenticated()" class="user-profile">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <span class="user-name" sec:authentication="name">User</span>
+                </div>
+
+                <form th:action="@{/logout}" method="POST" style="display: inline;">
+                    <button type="submit" class="btn-logout">Đăng xuất</button>
+                </form>
+            </li>
+<!--            <a th:href="@{/dangky}" class="btn btn-primary">Đăng Ký</a>-->
+            <a th:href="@{/admin}" class="btn btn-outline">Admin Page</a>
         </div>
     </nav>
 
     <div class="mobile-nav" id="mobileNav">
-        <a th:href="@{..}" class="mobile-nav-link active">Trang Chủ</a>
-        <a th:href="@{./thuvien}" class="mobile-nav-link">Thư Viện</a>
-        <a th:href="@{./sachcuatoi}" class="mobile-nav-link">Sách Của Tôi</a>
-        <a th:href="@{./lienhe}" class="mobile-nav-link">Liên Hệ</a>
-        <a th:href="@{./taikhoan}" class="mobile-nav-link">Tài Khoản</a>
+        <a th:href="@{/}" class="mobile-nav-link">Trang Chủ</a>
+        <a th:href="@{/shop}" class="mobile-nav-link">Thư Viện</a>
         <div class="mobile-auth-buttons">
-            <a th:href="@{./dangnhap}" class="btn btn-outline full-width">Đăng Nhập</a>
-            <a th:href="@{./dangky}" class="btn btn-primary full-width">Đăng Ký</a>
+            <li sec:authorize="isAnonymous()">
+                <a th:href="@{/login}" class="btn btn-primary">Đăng nhập</a>
+            </li>
+
+            <li sec:authorize="isAuthenticated()" class="user-profile">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <span class="user-name" sec:authentication="name">User</span>
+                </div>
+
+                <form th:action="@{/logout}" method="POST" style="display: inline;">
+                    <button type="submit" class="btn-logout">Đăng xuất</button>
+                </form>
+            </li>
+<!--            <a th:href="@{./dangky}" class="btn btn-primary full-width">Đăng Ký</a>-->
         </div>
     </div>
 </header>
@@ -92,18 +127,16 @@
             <div class="footer-section">
                 <h4>Điều Hướng</h4>
                 <ul>
-                    <li><a th:href="@{index}">Trang Chủ</a></li>
-                    <li><a th:href="@{thuvien}">Thư Viện</a></li>
-                    <li><a th:href="@{sachcuatoi}">Sách Của Tôi</a></li>
+                    <li><a th:href="@{/index}">Trang Chủ</a></li>
+                    <li><a th:href="@{/shop}">Thư Viện</a></li>
+
 
                 </ul>
             </div>
 
             <div class="footer-section">
                 <h4>Hỗ Trợ</h4>
-                <ul>
-                    <li><a th:href="@{./lienhe}">Liên Hệ</a></li>
-                </ul>
+
             </div>
 
             <div class="footer-section">
@@ -140,7 +173,7 @@
 </footer>
 
 <script th:src="@{js/script.js}"></script>
-<script th:src="@{/js/library.js}"></script>
-<script th:src="@{/js/mybooks.js}"></script>
+<!--<script th:src="@{/js/library.js}"></script>-->
+<!--<script th:src="@{/js/mybooks.js}"></script>-->
 </body>
 </html>

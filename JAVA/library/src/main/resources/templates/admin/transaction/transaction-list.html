@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản Lý Giao Dịch</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="container">
+        <div class="page-header-row">
+            <div class="page-header-text">
+                <h1>Quản Lý Giao Dịch Mượn/Trả</h1>
+                <p>Theo dõi yêu cầu mượn, quá hạn và xử lý trả sách.</p>
+            </div>
+            <button class="btn btn-primary">
+                <i class="fas fa-plus" style="width: 20px; height: 20px;"></i>
+                Tạo Giao Dịch Mượn Mới
+            </button>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card status-warning">
+                <div class="stat-card-content">
+                    <div class="stat-card-label">Yêu cầu Chờ Duyệt</div>
+                    <div class="stat-card-value" th:text="15">15</div>
+                </div>
+                <div class="stat-card-icon"><i class="fas fa-clock"></i></div>
+            </div>
+
+            <div class="stat-card status-primary">
+                <div class="stat-card-content">
+                    <div class="stat-card-label">Đang Mượn (Hiện tại)</div>
+                    <div class="stat-card-value" th:text="350">350</div>
+                </div>
+                <div class="stat-card-icon"><i class="fas fa-undo-alt"></i></div>
+            </div>
+
+            <div class="stat-card status-danger">
+                <div class="stat-card-content">
+                    <div class="stat-card-label">Quá Hạn (Cần Xử lý)</div>
+                    <div class="stat-card-value" th:text="45">45</div>
+                </div>
+                <div class="stat-card-icon"><i class="fas fa-exclamation-triangle"></i></div>
+            </div>
+        </div>
+
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Tìm kiếm theo Tên Sách, ID Giao dịch, hoặc Độc giả...">
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                <tr>
+                    <th style="width: 8%;">ID</th>
+                    <th style="width: 25%;">Sách (ISBN)</th>
+                    <th style="width: 15%;">Độc Giả</th>
+                    <th style="width: 12%;">Ngày Mượn</th>
+                    <th style="width: 12%;">Ngày Đến Hạn</th>
+                    <th style="width: 15%;">Trạng Thái</th>
+                    <th style="width: 13%; text-align: center;">Thao tác</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><span class="table-cell-title">#00099</span></td>
+                    <td>
+                        <div class="table-cell-title">Bí Mật Của Nước</div>
+                        <div class="table-cell-isbn">ISBN: 978-777-888</div>
+                    </td>
+                    <td class="table-cell-author">Nguyễn Thị C</td>
+                    <td th:text="${#dates.format(#dates.createNow(), 'dd/MM/yyyy')}">22/11/2025</td>
+                    <td class="text-warning">Chờ Duyệt</td>
+                    <td><span class="badge-status badge-warning">CHỜ DUYỆT</span></td>
+                    <td>
+                        <div class="table-actions" style="justify-content: center;">
+                            <button class="btn btn-sm btn-success" title="Duyệt yêu cầu">
+                                <i class="fas fa-check"></i> Duyệt
+                            </button>
+                            <button class="btn btn-sm btn-danger" title="Từ chối yêu cầu">
+                                <i class="fas fa-times"></i> Từ chối
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr th:each="i : ${#numbers.sequence(1, 4)}">
+                    <td><span class="table-cell-title" th:text="|0010${i}|">#00101</span></td>
+                    <td>
+                        <div class="table-cell-title" th:text="|Tên Sách Giao Dịch (${i})|">Tên Sách (1)</div>
+                        <div class="table-cell-isbn" th:text="|ISBN: 978-000-${i}${i}${i}|">ISBN: 978-000-111</div>
+                    </td>
+                    <td class="table-cell-author" th:text="|Độc Giả ${i}|">Độc Giả 1</td>
+                    <td th:text="${#dates.format(#dates.createNow(), '20/11/2025')}">20/11/2025</td>
+
+                    <td th:classappend="${i > 2 ? 'text-danger' : 'text-primary'}">
+                        <span th:if="${i <= 2}">30/11/2025</span>
+                        <span th:if="${i > 2}" class="text-danger">QUÁ HẠN!</span>
+                    </td>
+
+                    <td>
+                        <span th:if="${i <= 2}" class="badge-status badge-primary">ĐANG MƯỢN</span>
+                        <span th:if="${i > 2}" class="badge-status badge-danger">QUÁ HẠN</span>
+                    </td>
+
+                    <td>
+                        <div class="table-actions" style="justify-content: center;">
+                            <button class="btn btn-sm btn-return" title="Xử lý Trả">
+                                <i class="fas fa-handshake"></i> Trả
+                            </button>
+                            <button class="btn btn-sm btn-renew" th:disabled="${i > 2}" title="Gia Hạn">
+                                <i class="fas fa-history"></i> Gia Hạn
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+</body>
+<script>
+    let sidebarOpen = true;
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        const container = document.querySelector('.container');
+        //... logic
+    }
+</script>
+</html>

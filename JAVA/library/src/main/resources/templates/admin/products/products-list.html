@@ -1,234 +1,87 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
       layout:decorate="~{/admin/layout}">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Quản lý Sách</title>
     <link rel="stylesheet" th:href="@{/css(admin)/styles.css}">
 </head>
 <body>
 <div layout:fragment="content">
-    <div class="container">
-        <div class="page-header-row">
-            <div class="page-header-text">
-                <h1>Quản lý sách</h1>
-                <p>Quản lý tất cả các sách trong thư viện của bạn</p>
-            </div>
-            <button class="btn btn-primary">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px;">
+
+    <div class="page-header-row">
+        <div class="page-header-text">
+            <h1>Quản lý Sách</h1>
+            <p>Danh sách chi tiết tất cả sách trong hệ thống.</p>
+        </div>
+        <div class="page-actions">
+            <a th:href="@{/admin/products/create}" class="btn btn-primary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
                     <line x1="12" y1="5" x2="12" y2="19"></line>
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                 </svg>
-                Thêm sách
-            </button>
-        </div>
-
-        <!-- SEARCH BAR -->
-        <div class="search-bar">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="11" cy="11" r="8"></circle>
-                <path d="m21 21-4.35-4.35"></path>
-            </svg>
-            <input type="text" placeholder="Tìm kiếm theo tiêu đề, tác giả hoặc ISBN...">
-        </div>
-
-        <!-- TABLE -->
-        <div class="table-container">
-            <table>
-                <thead>
-                <tr>
-                    <th>Tiêu đề</th>
-                    <th>Tác giả</th>
-                    <th>ISBN</th>
-                    <th>Năm</th>
-                    <th>Thể loại</th>
-                    <th style="text-align: center;">Có sẵn / Tổng</th>
-                    <th style="text-align: center;">Thao tác</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td><span class="table-cell-title">The Great Gatsby</span></td>
-                    <td><span class="table-cell-author">F. Scott Fitzgerald</span></td>
-                    <td><span class="table-cell-isbn">978-0743273565</span></td>
-                    <td><span class="table-cell-year">1925</span></td>
-                    <td><span class="table-cell-category">Fiction</span></td>
-                    <td>
-                        <div class="table-cell-availability">
-                            <span class="availability-available">3</span>
-                            <span style="color: var(--text-slate-500);">/</span>
-                            <span class="availability-total">5</span>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table-actions">
-                            <button class="btn-edit">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                                </svg>
-                            </button>
-                            <button class="btn-delete">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="3 6 5 6 21 6"></polyline>
-                                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                                    <line x1="10" y1="11" x2="10" y2="17"></line>
-                                    <line x1="14" y1="11" x2="14" y2="17"></line>
-                                </svg>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span class="table-cell-title">To Kill a Mockingbird</span></td>
-                    <td><span class="table-cell-author">Harper Lee</span></td>
-                    <td><span class="table-cell-isbn">978-0061120084</span></td>
-                    <td><span class="table-cell-year">1960</span></td>
-                    <td><span class="table-cell-category">Fiction</span></td>
-                    <td>
-                        <div class="table-cell-availability">
-                            <span class="availability-available">2</span>
-                            <span style="color: var(--text-slate-500);">/</span>
-                            <span class="availability-total">4</span>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table-actions">
-                            <button class="btn-edit">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                                </svg>
-                            </button>
-                            <button class="btn-delete">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="3 6 5 6 21 6"></polyline>
-                                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                                    <line x1="10" y1="11" x2="10" y2="17"></line>
-                                    <line x1="14" y1="11" x2="14" y2="17"></line>
-                                </svg>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span class="table-cell-title">1984</span></td>
-                    <td><span class="table-cell-author">George Orwell</span></td>
-                    <td><span class="table-cell-isbn">978-0451524935</span></td>
-                    <td><span class="table-cell-year">1949</span></td>
-                    <td><span class="table-cell-category">Fiction</span></td>
-                    <td>
-                        <div class="table-cell-availability">
-                            <span class="availability-available">1</span>
-                            <span style="color: var(--text-slate-500);">/</span>
-                            <span class="availability-total">3</span>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table-actions">
-                            <button class="btn-edit">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                                </svg>
-                            </button>
-                            <button class="btn-delete">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="3 6 5 6 21 6"></polyline>
-                                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                                    <line x1="10" y1="11" x2="10" y2="17"></line>
-                                    <line x1="14" y1="11" x2="14" y2="17"></line>
-                                </svg>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span class="table-cell-title">Pride and Prejudice</span></td>
-                    <td><span class="table-cell-author">Jane Austen</span></td>
-                    <td><span class="table-cell-isbn">978-0141439518</span></td>
-                    <td><span class="table-cell-year">1813</span></td>
-                    <td><span class="table-cell-category">Romance</span></td>
-                    <td>
-                        <div class="table-cell-availability">
-                            <span class="availability-available">4</span>
-                            <span style="color: var(--text-slate-500);">/</span>
-                            <span class="availability-total">5</span>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table-actions">
-                            <button class="btn-edit">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                                </svg>
-                            </button>
-                            <button class="btn-delete">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="3 6 5 6 21 6"></polyline>
-                                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                                    <line x1="10" y1="11" x2="10" y2="17"></line>
-                                    <line x1="14" y1="11" x2="14" y2="17"></line>
-                                </svg>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span class="table-cell-title">The Catcher in the Rye</span></td>
-                    <td><span class="table-cell-author">J.D. Salinger</span></td>
-                    <td><span class="table-cell-isbn">978-0316769174</span></td>
-                    <td><span class="table-cell-year">1951</span></td>
-                    <td><span class="table-cell-category">Fiction</span></td>
-                    <td>
-                        <div class="table-cell-availability">
-                            <span class="availability-available">2</span>
-                            <span style="color: var(--text-slate-500);">/</span>
-                            <span class="availability-total">3</span>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table-actions">
-                            <button class="btn-edit">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                                </svg>
-                            </button>
-                            <button class="btn-delete">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="3 6 5 6 21 6"></polyline>
-                                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                                    <line x1="10" y1="11" x2="10" y2="17"></line>
-                                    <line x1="14" y1="11" x2="14" y2="17"></line>
-                                </svg>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+                Thêm mới Sách
+            </a>
         </div>
     </div>
 
-    <script>
-        let sidebarOpen = true;
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            const container = document.querySelector('.container');
-            sidebarOpen = !sidebarOpen;
-            if (sidebarOpen) {
-                sidebar.classList.remove('hidden');
-                container.classList.remove('full-width');
-            } else {
-                sidebar.classList.add('hidden');
-                container.classList.add('full-width');
-            }
-        }
-    </script>
-</div>
+    <div class="table-container">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th style="text-align: center;">Hành động</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="product : ${products}">
+                <th scope="row" th:text="${product.id}"></th>
+                <td class="table-cell-title" th:text="${product.title}"></td>
+                <td><img th:src="${product.image}" style="max-width: 100px" height="auto"></td>
+                <td th:text="${product.description}"></td>
+                <td th:text="${product.category != null ? product.category.name : 'Chưa phân loại'}"></td>
 
+                <td style="font-weight: 600; color: #e74c3c;"
+                    th:text="${#numbers.formatDecimal(product.price, 0, 'POINT', 3, 'POINT')} + ' VNĐ'">
+                </td>
+                <td th:if="${product.status==1}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-toggle-on" viewBox="0 0 16 16">
+                        <path d="M5 3a5 5 0 0 0 0 10h6a5 5 0 0 0 0-10zm6 9a4 4 0 1 1 0-8 4 4 0 0 1 0 8"/>
+                    </svg>
+                </td>
+                <td th:if="${product.status==0}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-toggle-off" viewBox="0 0 16 16">
+                        <path d="M11 4a4 4 0 0 1 0 8H8a5 5 0 0 0 2-4 5 5 0 0 0-2-4zm-6 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8M0 8a5 5 0 0 0 5 5h6a5 5 0 0 0 0-10H5a5 5 0 0 0-5 5"/>
+                    </svg>
+                </td>
+                <td class="table-actions">
+                    <a th:href="@{/admin/products/edit-form(id=${product.id})}"
+                       class="btn btn-warning btn-sm me-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                        </svg>
+                    </a>
+
+                    <a th:href="@{/admin/products/delete(id=${product.id})}" onclick="if(!(confirm('Are you sure you want to delete this category'))) return false" class="btn btn-danger btn-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3 text-danger" viewBox="0 0 16 16">
+                            <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
+                        </svg>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 </body>
 </html>

@@ -1864,9 +1864,7 @@ body {
 #contactForm.hidden {
     display: none;
 }
-/* ============================================
-   ACCOUNT DASHBOARD (taikhoan.html)
-   ============================================ */
+
 
 /* Account Hero Section */
 .account-hero {
@@ -2226,4 +2224,34 @@ body {
         padding: 0.3rem 0.6rem;
         font-size: 0.7rem;
     }
+}
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 5px 10px;
+    background: #f8f9fa;
+    border-radius: 50px;
+}
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #2d3436;
+    font-weight: 600;
+}
+.user-avatar {
+    background: #007bff;
+    color: white;
+    border-radius: 50%;
+    padding: 4px;
+    display: flex;
+}
+.btn-logout {
+    background: none;
+    border: none;
+    color: #d63031;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-decoration: underline;
 }

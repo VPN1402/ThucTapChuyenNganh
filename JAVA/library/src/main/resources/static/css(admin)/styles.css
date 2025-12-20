@@ -178,6 +178,7 @@ input, textarea, select {
 }
 
 .sidebar.hidden {
+    display: none;
   transform: translateX(-100%);
   width: 0;
   padding: 0;
@@ -726,3 +727,59 @@ tbody tr:last-child td {
     font-size: 11px;
   }
 }
+/* Đảm bảo cột hành động có độ rộng cố định và nội dung được căn giữa */
+.table-container th:last-child,
+.table-container td.table-actions {
+    width: 120px; /* Đặt độ rộng cố định cho cột Hành động */
+    text-align: center; /* Căn giữa nội dung trong ô */
+    white-space: nowrap; /* Ngăn các nút bị xuống dòng */
+}
+
+/* Căn giữa tiêu đề của các cột */
+.table-container th {
+    text-align: center;
+}
+
+/* Căn giữa ô ảnh (Image) */
+.table-container td img {
+    display: block; /* Để căn giữa ảnh */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Tối ưu khoảng cách giữa các nút Sửa/Xóa */
+.table-actions .btn {
+    margin: 0 4px; /* Giảm khoảng cách giữa các nút */
+}
+.table-container tbody td,
+.table-container tbody th {
+    vertical-align: middle;
+}
+
+/* Đảm bảo các nút hành động nằm cạnh nhau và căn giữa */
+.table-actions {
+    width: 120px;
+    text-align: center;
+    white-space: nowrap;
+}
+.table-container tbody td img {
+    max-width: 100px;  /* Giới hạn chiều rộng tối đa */
+    height: auto;      /* Giữ tỉ lệ */
+    max-height: 100px; /* 💡 KHẮC PHỤC: Đặt chiều cao tối đa cố định */
+    display: block;
+    margin: 5px auto; /* Thêm margin trên/dưới cho ảnh không bị sát lề */
+}
+
+/* BẮT BUỘC: Giữ căn giữa theo chiều dọc */
+.table-container tbody td,
+.table-container tbody th {
+    vertical-align: middle;
+}
+.nav-links a.nav-link.active,
+.mobile-nav a.mobile-nav-link.active {
+    color: #3b82f6 !important; /* Màu xanh nổi bật */
+    border-bottom: 2px solid #3b82f6 !important; /* Gạch chân 2px */
+    font-weight: 600;
+    padding-bottom: 4px; /* Khoảng cách giữa chữ và gạch chân */
+}
+
