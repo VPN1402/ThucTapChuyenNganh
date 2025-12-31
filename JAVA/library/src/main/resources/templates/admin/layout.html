@@ -35,13 +35,8 @@
             <div class="navbar-user-role">Manager</div>
         </div>
         <div class="navbar-avatar">A</div>
-        <a th:href="@{/index}"
-        >Page Home
-        </a>
-        <a th:href="@{/login}"
-           onclick="return confirm('Bạn có chắc chắn muốn đăng xuất không?');"
-        >Log out
-        </a>
+        <a th:href="@{/index}" class="btn btn-outline" style="background: crimson">Page Home</a>
+        <a th:href="@{/login}" onclick="return confirm('Bạn có chắc chắn muốn đăng xuất không?');" class="btn btn-outline" style="background: crimson">Log out</a>
 
     </div>
 </div>
@@ -74,7 +69,24 @@
         </svg>
         <span>Quản Lý Thể Loại</span>
     </a>
-
+        <a th:href="@{/admin/contacts}" class="sidebar-item">
+            <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <span>Quản Lý Liên Hệ</span>
+        </a>
+        <a th:href="@{/admin/about}" class="sidebar-item">
+            <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <span>Quản Lý Thông Tin</span>
+        </a>
 <!--        <a th:href="@{/transaction}" class="sidebar-item">-->
 <!--            <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">-->
 <!--                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>-->

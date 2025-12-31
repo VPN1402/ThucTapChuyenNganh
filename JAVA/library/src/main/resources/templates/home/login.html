@@ -26,6 +26,9 @@
             User or password invalid!
         </div>
         <div class="card-body">
+            <div th:if="${successMessage}" class="alert alert-success">
+                <p th:text="${successMessage}"></p>
+            </div>
             <form th:action="@{/authenticateTheUser}" method="post">
                 <div class="form-group">
                     <label for="username">User name</label>

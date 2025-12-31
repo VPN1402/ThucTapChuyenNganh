@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout}">
+<head>
+    <title>Cập nhật Giới thiệu</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="container-fluid px-4 mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Quản lý trang Giới thiệu</h1>
+            <a th:href="@{/admin/about}" class="btn btn-sm btn-secondary shadow-sm">
+                <i class="fas fa-arrow-left fa-sm text-white-50"></i> Quay lại danh sách
+            </a>
+        </div>
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 bg-primary">
+                <h6 class="m-0 font-weight-bold text-white">Chỉnh sửa nội dung</h6>
+            </div>
+            <div class="card-body">
+                <form th:action="@{/admin/about/update}" th:object="${about}" method="post">
+                    <input type="hidden" th:field="*{id}">
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Tiêu đề trang:</label>
+                        <input type="text" th:field="*{title}" class="form-control form-control-lg"
+                               placeholder="Ví dụ: Về chúng tôi - BookLib" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Nội dung chi tiết:</label>
+                        <textarea th:field="*{content}" class="form-control" rows="15"
+                                  placeholder="Nhập nội dung giới thiệu..." required></textarea>
+                        <div class="form-text mt-2 text-muted">
+                            <i class="fas fa-info-circle"></i> Bạn có thể sử dụng các thẻ HTML để trình bày nội dung đẹp hơn.
+                        </div>
+                    </div>
+
+                    <div class="border-top pt-3 d-flex justify-content-end">
+                        <button type="reset" class="btn btn-light me-2">Làm mới</button>
+                        <button type="submit" class="btn btn-success px-4">
+                            <i class="fas fa-save me-1"></i> Lưu thay đổi
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

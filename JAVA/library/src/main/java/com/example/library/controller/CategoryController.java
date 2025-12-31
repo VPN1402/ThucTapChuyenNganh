@@ -2,7 +2,7 @@ package com.example.library.controller;
 
 import com.example.library.service.CategoryService;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model; // <--- DÒNG CẦN SỬ DỤNG
+import org.springframework.ui.Model;
 import com.example.library.entity.Category;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

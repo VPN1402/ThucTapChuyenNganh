@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{admin/layout}"> <head>
+    <meta charset="UTF-8">
+    <title>Quản lý Liên hệ</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Danh sách lời nhắn từ khách</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive"> <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                <tr>
+                    <th>Ngày gửi</th>
+                    <th>Họ tên</th>
+                    <th>Email</th>
+                    <th>Nội dung</th>
+                    <th>Hành động</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="temp : ${contacts}">
+                    <td th:text="${#temporals.format(temp.createdAt, 'dd-MM-yyyy HH:mm')}"></td>
+                    <td th:text="${temp.name}"></td>
+                    <td th:text="${temp.email}"></td>
+                    <td th:text="${temp.message}"></td>
+                    <td>
+                        <a th:href="@{/admin/contacts/delete/{id}(id=${temp.id})}"
+
+                           class="btn btn-danger btn-sm"
+                           onclick="return confirm('Bạn có chắc chắn muốn xóa lời nhắn này?')">
+                            <i class="fa fa-trash"></i> Xóa
+                        </a>
+                    </td>
+                </tr>
+
+                <tr th:if="${#lists.isEmpty(contacts)}">
+                    <td colspan="5" class="text-center">Hiện chưa có tin nhắn nào từ khách hàng.</td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -31,17 +31,13 @@
             <a th:href="@{/}" class="nav-link">Trang Chủ</a>
             <a th:href="@{/shop}" class="nav-link">Thư Viện</a>
             <a th:href="@{/shop/theloai}" class="nav-link">Thể Loại</a>
+            <a th:href="@{/contact}" class="nav-link">Liên Hệ</a>
+            <a th:href="@{/about}" class="nav-link">Về Chúng Tôi</a>
 
 
         </div>
 
         <div class="nav-utility">
-<!--            <button class="icon-btn desktop-only" aria-label="Tìm kiếm sách">-->
-<!--                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">-->
-<!--                    <circle cx="11" cy="11" r="8"></circle>-->
-<!--                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>-->
-<!--                </svg>-->
-<!--            </button>-->
 
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -55,6 +51,7 @@
         <div class="auth-buttons desktop-only">
             <li sec:authorize="isAnonymous()">
                 <a th:href="@{/login}" class="btn btn-primary">Đăng nhập</a>
+                <a th:href="@{/dangky}" class="btn btn-primary">Đăng Ký</a>
             </li>
 
             <li sec:authorize="isAuthenticated()" class="user-profile">
@@ -69,20 +66,20 @@
                 </div>
 
                 <form th:action="@{/logout}" method="POST" style="display: inline;">
-                    <button type="submit" class="btn-logout">Đăng xuất</button>
+                    <button type="submit" class="btn btn-primary" style="background: red">Đăng xuất</button>
                 </form>
             </li>
-<!--            <a th:href="@{/dangky}" class="btn btn-primary">Đăng Ký</a>-->
             <a th:href="@{/admin}" class="btn btn-outline">Admin Page</a>
         </div>
     </nav>
 
     <div class="mobile-nav" id="mobileNav">
         <a th:href="@{/}" class="mobile-nav-link">Trang Chủ</a>
-        <a th:href="@{/shop}" class="mobile-nav-link">Thư Viện</a>
+            <a th:href="@{/shop}" class="mobile-nav-link">Thư Viện</a>
         <div class="mobile-auth-buttons">
             <li sec:authorize="isAnonymous()">
                 <a th:href="@{/login}" class="btn btn-primary">Đăng nhập</a>
+                <a th:href="@{/dangky}" class="btn btn-primary">Đăng Ký</a>
             </li>
 
             <li sec:authorize="isAuthenticated()" class="user-profile">
@@ -100,7 +97,6 @@
                     <button type="submit" class="btn-logout">Đăng xuất</button>
                 </form>
             </li>
-<!--            <a th:href="@{./dangky}" class="btn btn-primary full-width">Đăng Ký</a>-->
         </div>
     </div>
 </header>
@@ -134,10 +130,6 @@
                 </ul>
             </div>
 
-            <div class="footer-section">
-                <h4>Hỗ Trợ</h4>
-
-            </div>
 
             <div class="footer-section">
                 <h4>Liên Hệ</h4>
@@ -160,14 +152,15 @@
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                             <polyline points="22,6 12,13 2,6"></polyline>
                         </svg>
-                        info@booklib.com
+                        phuocnhancvcv248@gmail.com
                     </li>
+                    <li><a th:href="@{/contact}" class="btn btn-outline">Nếu Bạn Cần trợ giúp hãy click vào đây</a></li>
                 </ul>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2024 BookLib. Tất cả các quyền được bảo lưu.</p>
+            <p>&copy; 2025 BookLib. Tất cả các quyền được bảo lưu.</p>
         </div>
     </div>
 </footer>

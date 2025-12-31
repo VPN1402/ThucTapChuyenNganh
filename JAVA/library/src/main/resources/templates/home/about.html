@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{home/layout}">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        /* Tùy chỉnh thêm để chữ nằm chính giữa và có điểm nhấn */
+        .about-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .about-title {
+            font-weight: 800;
+            color: #2c3e50;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        /* Tạo gạch chân trang trí dưới chữ đã căn giữa */
+        .about-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: #007bff;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #444;
+            text-align: justify; /* Căn đều nội dung cho đẹp */
+        }
+    </style>
+</head>
+<body>
+
+<div layout:fragment="main-content">
+    <div class="container mt-5 mb-5">
+        <div class="about-header">
+            <h1 class="display-4 about-title" th:text="${about.title}">Về Thư Viện BookLib</h1>
+        </div>
+
+        <div class="about-content mt-4" th:utext="${about.content}">
+        </div>
+
+
+    </div>
+</div>
+
+</body>
+</html>

@@ -2,97 +2,87 @@
 <html lang="en"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:th="http://www.thymeleaf.org"
-      layout:decorate="~{/admin/layout}"
->
+      layout:decorate="~{admin/layout}">
 <head>
     <meta charset="UTF-8">
-    <title>Quản lý Sách</title>
+    <title>Thêm Sách Mới</title>
+    <link rel="stylesheet" th:href="@{/css/admin/form-style.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 </head>
 <body>
 <div layout:fragment="content">
-
-    <div class="container my-5">
+    <div class="container py-5">
         <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-10">
+            <div class="col-lg-8">
 
-                <div class="card shadow-lg border-0">
-                    <div class="card-header bg-success text-white text-center py-3">
-                        <h4 class="mb-0 fs-3">📚 THÊM SẢN PHẨM/SÁCH MỚI</h4>
+                <div class="card card-product-form shadow-lg">
+                    <div class="card-header-gradient text-white text-center">
+                        <h3 class="mb-0 fw-bold"><i class="bi bi-plus-circle me-2"></i>QUẢN LÝ SẢN PHẨM</h3>
                     </div>
-                    <div class="card-body p-4">
 
+                    <div class="card-body p-5">
                         <form th:action="@{/admin/products/save}" method="post" th:object="${product}">
-
                             <input type="hidden" th:field="*{id}">
 
-                            <div class="mb-3">
-                                <label for="title" class="form-label fw-bold">Tên Sách/Sản phẩm</label>
-                                <input type="text" class="form-control" id="title" th:field="*{title}" placeholder="Nhập tên sách..." required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="image_field" class="form-label fw-bold">URL Hình ảnh</label>
-                                <input type="url" class="form-control" id="image_field" th:field="*{image}" placeholder="https://example.com/image.jpg" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="description" class="form-label fw-bold">Mô tả ngắn</label>
-                                <textarea class="form-control" id="description" th:field="*{description}" rows="3" placeholder="Nhập mô tả ngắn về sản phẩm..."></textarea>
-                            </div>
-
-                            <div class="mb-3">
-                                <select name="categoryId" class="form-select" required>
-                                    <option value="">-- Chọn thể loại --</option>
-                                    <option th:each="cate : ${categories}"
-                                            th:value="${cate.id}"
-                                            th:text="${cate.name}"
-                                            th:selected="${product.category != null && product.category.id == cate.id}">
-                                    </option>
-                                </select>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="price" class="form-label fw-bold">Giá bán</label>
+                            <div class="mb-4">
+                                <label class="form-label fw-bold">Tên Sách</label>
                                 <div class="input-group">
-                                    <span class="input-group-text">VNĐ</span>
-                                    <input type="number"
-                                           class="form-control"
-                                           id="price"
-                                           th:field="*{price}"
-                                           step="1"
-                                           min="0"
-                                           placeholder="Ví dụ: 150000"
-                                           required>
+                                    <span class="input-group-text-custom"><i class="bi bi-pencil-square"></i></span>
+                                    <input type="text" class="form-control custom-input" th:field="*{title}" placeholder="Nhập tên sách..." required>
                                 </div>
                             </div>
 
-                            <div class="mb-3">
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Thể loại</label>
+                                    <select name="categoryId" class="form-select custom-select" required>
+                                        <option value="">-- Chọn --</option>
+                                        <option th:each="cate : ${categories}" th:value="${cate.id}" th:text="${cate.name}"
+                                                th:selected="${product.category != null && product.category.id == cate.id}"></option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Giá bán (VNĐ)</label>
+                                    <input type="number" class="form-control custom-input" th:field="*{price}" required>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label fw-bold">URL Hình ảnh</label>
+                                <input type="url" class="form-control custom-input" th:field="*{image}" required>
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label fw-bold mb-2">Mô tả nội dung</label>
+                                <div class="input-group">
+                                    <span class="input-group-text-custom"><i class="bi bi-card-text"></i></span>
+                                    <textarea class="form-control custom-input"
+                                              th:field="*{description}"
+                                              rows="4"
+                                              placeholder="Nhập mô tả tóm tắt về cuốn sách giúp khách hàng dễ hình dung..."></textarea>
+                                </div>
+
+                            </div>
+                            <div class="mb-4">
                                 <label class="form-label fw-bold">Trạng thái</label>
-                                <div class="p-2 border rounded">
-                                    <div class="form-check form-check-inline me-4">
-                                        <input class="form-check-input" type="radio" id="statusActive" th:field="*{status}" th:value="1" checked>
-                                        <label class="form-check-label text-success" for="statusActive">
-                                            <i class="bi bi-check-circle-fill"></i> 1 (Kích hoạt)
-                                        </label>
+                                <div class="status-container d-flex justify-content-around">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" th:field="*{status}" th:value="1" id="st1">
+                                        <label class="form-check-label text-success fw-bold status-label" for="st1">Kích hoạt</label>
                                     </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" id="statusInactive" th:field="*{status}" th:value="0">
-                                        <label class="form-check-label text-danger" for="statusInactive">
-                                            <i class="bi bi-x-octagon-fill"></i> 0 (Khóa)
-                                        </label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" th:field="*{status}" th:value="0" id="st0">
+                                        <label class="form-check-label text-danger fw-bold status-label" for="st0">Tạm khóa</label>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="d-grid mt-4">
-                                <button type="submit" class="btn btn-primary btn-lg">
-                                    <i class="bi bi-book"></i> Thêm Sách
-                                </button>
-                            </div>
+                            <button type="submit" class="btn btn-primary btn-save-product w-100 shadow">
+                                <i class="bi bi-save me-2"></i> HOÀN TẤT THÊM SÁCH
+                            </button>
                         </form>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

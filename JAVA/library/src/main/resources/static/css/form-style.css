@@ -1,0 +1,100 @@
+/* Import font hiện đại */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
+
+:root {
+    --primary-gradient: linear-gradient(135deg, #4361ee, #4cc9f0);
+    --success-gradient: linear-gradient(135deg, #2ecc71, #27ae60);
+    --glass-bg: rgba(255, 255, 255, 0.95);
+    --golden-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1), 0 4px 10px -5px rgba(0, 0, 0, 0.04);
+    --input-focus-shadow: 0 0 0 4px rgba(67, 97, 238, 0.15);
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #f0f2f5;
+    color: #1a1c23;
+}
+
+/* Hiệu ứng Card theo tỉ lệ vàng */
+.card-product-form {
+    border: none;
+    border-radius: 20px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--golden-shadow); /* Đổ bóng đa lớp hiện đại */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-product-form:hover {
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+}
+
+/* Header Gradient mượt mà */
+.card-header-gradient {
+    background: var(--primary-gradient);
+    padding: 30px;
+    border-radius: 20px 20px 0 0 !important;
+    border: none;
+}
+
+/* Tối ưu hóa Input */
+.custom-input, .custom-select {
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 12px 18px;
+    font-size: 0.95rem;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: #ffffff;
+}
+
+.custom-input:focus, .custom-select:focus {
+    border-color: #4361ee;
+    box-shadow: var(--input-focus-shadow);
+    transform: translateY(-1px);
+}
+
+/* Nút bấm hiện đại có chiều sâu */
+.btn-save-product {
+    background: var(--primary-gradient);
+    border: none;
+    border-radius: 12px;
+    padding: 15px;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-save-product:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
+    filter: brightness(1.1);
+}
+
+/* Box trạng thái tối giản */
+.status-container {
+    background: #f8fafc;
+    border: 1px solid #edf2f7;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.form-check-input:checked {
+    background-color: #4361ee;
+    border-color: #4361ee;
+    box-shadow: 0 0 10px rgba(67, 97, 238, 0.3);
+}
+
+/* Icon styling */
+.input-group-text-custom {
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-right: none;
+    border-radius: 12px 0 0 12px;
+    color: #94a3b8;
+    padding: 0 15px;
+}
